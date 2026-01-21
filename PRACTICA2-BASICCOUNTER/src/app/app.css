@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+div {
+  text-align: center;
+  font-size: smaller;
+}
+
+span {
+  margin: 0 0.2rem;
+}
+
+button {
+  font-size: smaller;
+  margin: 0 0.2rem;
+}

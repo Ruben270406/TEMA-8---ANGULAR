@@ -1,0 +1,14 @@
+<h1>Angular Films</h1>
+<div class="movies-container">
+    @for (movie of this.movies; track movie.id){
+  <div  class="movie-card">
+     
+    <img [src]="movie.image" [alt]="movie.title" class="movie-image">
+    <div class="movie-info">
+      <p><strong>Movie: </strong>{{ movie.title }}</p>
+      <p><strong>Premiere:</strong> {{ movie.year }}</p>
+      <p><strong>Stars:</strong> {{ movie.stars }}</p>
+    </div>
+  </div>
+}
+</div>
