@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-dni',
@@ -7,11 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './dni.css',
 })
 export class Dni {
-  @Input() apellidos: string = '';
-  @Input() nombre: string = '';
-  @Input() dni: string = '';
-  @Input() nacionalidad: string = 'ESP';
-  @Input() fechaNacimiento: string = '01/01/2000';
-  @Input() sexo: string = 'H';
-  @Input() fechaValidez: string = '01/01/2030';
+  public nombre = input<string>('');
+  public apellidos = input<string>('');
+  public dni = input<string>('');
+  
 }

@@ -16,41 +16,41 @@
     <div class="dni-data">
       <div class="field">
         <label>Apellidos</label>
-        <span>{{ apellidos }}</span>
+        <span>{{this.apellidos()}}</span>
       </div>
 
       <div class="field">
         <label>Nombre</label>
-        <span>{{ nombre }}</span>
+        <span>{{this.nombre()}}</span>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label>DNI</label>
-          <span>{{ dni }}</span>
+          <span>{{this.dni()}}</span>
         </div>
 
         <div class="field">
           <label>Nacionalidad</label>
-          <span>{{ nacionalidad }}</span>
+          <span>ESP</span>
         </div>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label>Fecha de nacimiento</label>
-          <span>{{ fechaNacimiento }}</span>
+          <span>01/01/2000</span>
         </div>
 
         <div class="field">
           <label>Sexo</label>
-          <span>{{ sexo }}</span>
+          <span>H</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="dni-footer">
-    <span>Válido hasta: {{ fechaValidez }}</span>
+    <span>Válido hasta: 01/01/2030</span>
   </div>
 </div>
