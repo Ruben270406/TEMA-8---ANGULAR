@@ -1,22 +1,23 @@
 import { Component, EventEmitter, output, Output } from '@angular/core';
 import { LoginData } from '../models/login-data.ts/login-data.ts';
+import { Form } from "./form/form";
 
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [Form],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
- public onSubmit = output<LoginData>();
+ public name: string = "";
+ public email: string = "";
+  public message: string = "";
 
-  public submit(name: string, email:string, message:string): void {
-    let logingData: LoginData = {
-      name: name,
-      email: email, 
-      message: message
-    };
-    this.onSubmit.emit(logingData);
+  public test(event: LoginData): void {
+    this.name = event.name;
+    this.email = event.email;
+    this.message = event.message;
   }
+
 }

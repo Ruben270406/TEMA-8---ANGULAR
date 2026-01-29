@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Formulario de contacto</h2>
+
+  <label>Nombre</label>
+  <textarea rows="1" #name></textarea>
+
+  <label>Email</label>
+  <textarea rows="1" #email></textarea>
+
+  <label>Mensaje</label>
+  <textarea rows="4" #message></textarea>
+
+    <button type="submit" (click)="submit(name.value, email.value, message.value)">
+        Enviar
+    </button>
+</div>

@@ -1,14 +1,10 @@
-<div class="container">
-  <h2>Formulario de contacto</h2>
-
-  <label>Nombre</label>
-  <textarea rows="1" #name></textarea>
-
-  <label>Email</label>
-  <textarea rows="1" #email></textarea>
-
-  <label>Mensaje</label>
-  <textarea rows="4" #message></textarea>
-
-  <button (click)="submit(name.value, email.value, message.value)" type="submit">Enviar</button>
+<div>
+    <p>Nombre: {{this.name}}</p>
+    <p>Email: {{this.email}}</p>
+    <p>Mensaje: {{this.message}}</p>
 </div>
+<app-form
+(datos)="this.name = $event.name; this.email = $event.email; this.message = $event.message"
+>
+  
+</app-form>
