@@ -15,4 +15,5 @@ export class CardMovie {
   protected selectMovie(title: string): void {
     this.onMovieSelected.emit(title);
   }
+
 }

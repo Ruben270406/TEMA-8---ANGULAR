@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { moviesMock } from './mocks/movies-mock';
+
 import { ListMovies } from './components/list-movies/list-movies';
+import { MoviesApi } from './services/movies-api';
 
 @Component({
   selector: 'app-movies',
@@ -9,5 +10,9 @@ import { ListMovies } from './components/list-movies/list-movies';
   styleUrl: './movies.css',
 })
 export class Movies {
-  movies = moviesMock;
+  //movies = moviesMock;
+  public h3: string = "Angular Movies";
+  constructor(protected testMovies: MoviesApi) {
+    
+  }
 }
