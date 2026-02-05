@@ -1,0 +1,31 @@
+
+<h1>Provinces</h1>
+
+@if (this.provicesResource.hasValue()){
+    <p>Number of provincese: {{provicesResource.value().total_count}}</p>
+    @for (province of provicesResource.value().results; track $index) {
+        <p>Provinces: {{province.provincia}}</p>
+    }
+}
+
+@else if (provicesResource.isLoading()){
+    <p>Loading...</p>
+}
+
+@else if (provicesResource.error()){
+    <p>Ha ocurrido un error</p>
+}
+<hr>
+<h1>Movies</h1>
+@if (this.fetchMovies.hasValue() && this.fetchMovies.value().length>0){
+  @for (movie of this.fetchMovies.value(); track movie.id){
+    <p>{{movie.primaryTitle}}</p>
+  }
+}@else if (this.fetchMovies.isLoading()){
+  <p>Loading movies...</p>
+}@else if (this.fetchMovies.error()){
+  <p>{{this.fetchMovies.error()?.message}}</p>
+}
+
+
+<router-outlet />
