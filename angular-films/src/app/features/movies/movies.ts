@@ -9,8 +9,10 @@ import { MoviesApi } from './services/movies-api';
   styleUrl: './movies.css',
 })
 export class Movies {
-  constructor(public moviesApi: MoviesApi) {
-    
-  }
+  constructor(public moviesApi: MoviesApi) {}
+    protected removeMovieById(id: string) {
+    this.moviesApi.removeMovieById(id);
+    }
+  
 
 }
