@@ -10,4 +10,5 @@ import { Movies } from './features/movies/movies';
 })
 export class App {
   protected readonly title = signal('angular-films');
+  
 }

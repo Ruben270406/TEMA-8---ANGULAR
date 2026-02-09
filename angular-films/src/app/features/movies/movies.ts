@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { ListMovies } from './components/list-movies/list-movies';
 import { MoviesApi } from './services/movies-api';
 
@@ -10,9 +9,8 @@ import { MoviesApi } from './services/movies-api';
   styleUrl: './movies.css',
 })
 export class Movies {
-  //movies = moviesMock;
-  public h3: string = "Angular Movies";
-  constructor(protected testMovies: MoviesApi) {
+  constructor(public moviesApi: MoviesApi) {
     
   }
+
 }

@@ -1,2 +1,9 @@
-<h3>{{h3}}</h3>
-<app-list-movies [movies]="testMovies.movies"></app-list-movies>
+@if (moviesApi.getAllMovies.hasValue() && moviesApi.getAllMovies.value().movies.length > 0) {
+  <app-list-movies
+    [movies]="moviesApi.getAllMovies.value().movies"
+  ></app-list-movies>
+} @else if (moviesApi.getAllMovies.isLoading()) {
+  <p>Loading movies...</p>
+} @else if (moviesApi.getAllMovies.error()) {
+  <p>Error: {{ moviesApi.getAllMovies.error()?.message }}</p>
+}

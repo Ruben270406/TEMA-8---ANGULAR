@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Movies } from '../models/movies';
-import { moviesMock } from '../mocks/movies-mock';
+import { MovieResponse } from '../models/movies';
+import { httpResource } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesApi {
-public movies: Movies[] = moviesMock;
+  private readonly url: string = 'http://localhost:3000/response';
+
+  public readonly getAllMovies = httpResource<MovieResponse>(() => this.url);
 }

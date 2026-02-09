@@ -1,3 +1,11 @@
+export interface MovieResponse{
+    status: boolean;
+    message: string;
+    timestamp: number;
+    movies: Movies[];
+
+}
+
 export interface Movies {
     id: string;
     qid: string;
