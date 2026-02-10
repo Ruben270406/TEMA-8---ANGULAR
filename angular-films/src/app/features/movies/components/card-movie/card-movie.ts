@@ -11,7 +11,7 @@ export class CardMovie {
   public movie = input.required<Movies>();
 
   protected onMovieSelected = output<string>();
-  protected onMovieRemoved = output<String>();
+  protected onMovieRemoved = output<string>();
 
   protected selectMovie(title: string): void {
     this.onMovieSelected.emit(title);

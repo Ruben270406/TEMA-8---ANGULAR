@@ -11,7 +11,7 @@ import { CardMovie } from '../card-movie/card-movie';
 export class ListMovies {
   public movies = input<Movies[]>();
   protected selectedMovie = '';
-  protected onEmitIdMovie = output<string>();
+  public onEmitIdMovie = output<string>();
 
   protected setTitle(title: string): void {
     this.selectedMovie = title;
