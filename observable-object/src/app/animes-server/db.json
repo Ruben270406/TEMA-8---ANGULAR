@@ -1,0 +1,59 @@
+{
+  "animes": [
+    {
+      "id": 1,
+      "title": "Attack on Titan",
+      "originalTitle": "Shingeki no Kyojin",
+      "year": 2013,
+      "studio": "Wit Studio",
+      "genres": ["Action", "Drama", "Fantasy"],
+      "episodes": 87,
+      "rating": 9.0,
+      "finished": true
+    },
+    {
+      "id": 2,
+      "title": "Naruto",
+      "originalTitle": "Naruto",
+      "year": 2002,
+      "studio": "Pierrot",
+      "genres": ["Action", "Adventure"],
+      "episodes": 220,
+      "rating": 8.3,
+      "finished": true
+    },
+    {
+      "id": 3,
+      "title": "Naruto Shippuden",
+      "originalTitle": "Naruto: Shippūden",
+      "year": 2007,
+      "studio": "Pierrot",
+      "genres": ["Action", "Adventure"],
+      "episodes": 500,
+      "rating": 8.7,
+      "finished": true
+    },
+    {
+      "id": 4,
+      "title": "One Piece",
+      "originalTitle": "One Piece",
+      "year": 1999,
+      "studio": "Toei Animation",
+      "genres": ["Action", "Adventure", "Comedy"],
+      "episodes": 1000,
+      "rating": 8.9,
+      "finished": false
+    },
+    {
+      "id": 5,
+      "title": "Death Note",
+      "originalTitle": "Desu Nōto",
+      "year": 2006,
+      "studio": "Madhouse",
+      "genres": ["Thriller", "Mystery"],
+      "episodes": 37,
+      "rating": 9.1,
+      "finished": true
+    }
+  ]
+}
