@@ -16,4 +16,8 @@ public readonly getAllAnimes = httpResource<Anime[]>(() => ({ url: this.url
   public readonly deleteAnimeById = (idAnime: number): Observable<void> => {
     return this.http.delete<void>(`${this.url}/${idAnime}`);
   }
+
+  public readonly updateAnimeById = (idAnime: number, newEpisodes: number): Observable<Anime> => {
+  return this.http.patch<Anime>(`${this.url}/${idAnime}`, {episodes: newEpisodes}); 
+  }
 }
