@@ -3,7 +3,7 @@
     @for (anime of this.animesApi.getAllAnimes.value(); track anime.id) {
       <article class="anime-card">
         <span class="anime-edit" aria-label="Edit anime">✎</span>
-        <span class="anime-close" aria-hidden="true">x</span>
+        <span class="anime-close" aria-hidden="true" (click)="deleteAnimeById(anime.id)">x</span>
         <h3 class="anime-title">{{ anime.title }}</h3>
         <p class="anime-original">{{ anime.originalTitle }}</p>
         <p class="anime-meta">Episodes: {{ anime.episodes }}</p>
