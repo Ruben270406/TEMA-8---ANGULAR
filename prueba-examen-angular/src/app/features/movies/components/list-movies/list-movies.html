@@ -1,0 +1,7 @@
+<h3>Angular Movies</h3>
+<h3>Movie Selected:</h3>
+<div class="container-movies">
+  @for (movieget of listMovies(); track movieget.id) {
+    <app-card-movies [movie]="movieget"></app-card-movies>
+  }
+</div>
