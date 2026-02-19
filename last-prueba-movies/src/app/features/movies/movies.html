@@ -1,0 +1,13 @@
+@if (this.moviesApi.getAllMovies.hasValue() && this.moviesApi.getAllMovies.value().movies.length>0){
+    <app-list-movies
+    [listMovies]="moviesApi.getAllMovies.value().movies">
+
+    
+    </app-list-movies>  
+}
+@else if (this.moviesApi.getAllMovies.isLoading()) {
+    <p>Is Loading...</p>
+}
+@else if (this.moviesApi.getAllMovies.error()){
+    <p>Error{{this.moviesApi.getAllMovies.value()?.message}}</p>
+}

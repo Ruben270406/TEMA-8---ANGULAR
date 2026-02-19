@@ -1,0 +1,5 @@
+<div class="container-movies">
+  @for (movieget of listMovies(); track movieget.id) {
+    <app-card-movies [movies]="movieget"></app-card-movies>
+  }
+</div>

@@ -13,6 +13,6 @@ export class Movies {
     protected removeMovieById(id: string) {
     this.moviesApi.removeMovieById(id);
     }
-  
+
 
 }

@@ -1,0 +1,142 @@
+{
+  "Movie Interface": {
+    "prefix": "movie-interface",
+    "body": [
+      "export interface MovieResponse {",
+      "    status: boolean;",
+      "    message: string;",
+      "    timestamp: number;",
+      "    movies: Movie[];",
+      "}",
+      "",
+      "export interface Movie {",
+      "    id: string;",
+      "    qid: string;",
+      "    title: string;",
+      "    year: number;",
+      "    stars: string;",
+      "    q: string;",
+      "    image: string;",
+      "}"
+    ],
+    "description": "Interface para el modelo de películas"
+  },
+  "Movie Api Service": {
+    "prefix": "movie-service",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { httpResource } from '@angular/common/http';",
+      "import { MovieResponse } from '../models/movie';",
+      "",
+      "@Injectable({",
+      "  providedIn: 'root',",
+      "})",
+      "export class MovieApi {",
+      "  private readonly url: string = \"http://localhost:3000/response\";",
+      "  public readonly getAllMovies = httpResource<MovieResponse>(() => this.url);",
+      "}"
+    ],
+    "description": "Servicio de API usando httpResource"
+  },
+  "Card Movies Component TS": {
+    "prefix": "card-movie-ts",
+    "body": [
+      "import { Component, input } from '@angular/core';",
+      "import { Movie } from '../../models/movie';",
+      "",
+      "@Component({",
+      "  selector: 'app-card-movies',",
+      "  standalone: true,",
+      "  imports: [],",
+      "  templateUrl: './card-movies.html',",
+      "  styleUrl: './card-movies.css',",
+      "})",
+      "export class CardMovies {",
+      "  public movie = input.required<Movie>();",
+      "}"
+    ],
+    "description": "Lógica del componente Card con Signal input"
+  },
+  "Card Movies HTML": {
+    "prefix": "card-movie-html",
+    "body": [
+      "<div class=\"card\" style=\"width: 18rem\">",
+      "  <img class=\"card-img-top\" [src]=\"movie().image\" alt=\"{{movie().title}}\" />",
+      "  <div class=\"card-body\">",
+      "    <p class=\"card-text\"><strong>Movie: </strong>{{movie().title}}</p>",
+      "    <p class=\"card-text\"><strong>Premiere: </strong>{{movie().year}}</p>",
+      "    <p class=\"card-text\"><strong>Stars: </strong>{{movie().stars}}</p>",
+      "  </div>",
+      "  <div class=\"button-container\">",
+      "    <button type=\"button\" class=\"btn btn-danger\">Delete Movie</button>",
+      "    <button type=\"button\" class=\"btn btn-primary\">Select Movie</button>",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "Template HTML para la tarjeta de película"
+  },
+  "List Movies Component TS": {
+    "prefix": "list-movie-ts",
+    "body": [
+      "import { Component, input } from '@angular/core';",
+      "import { Movie } from '../../models/movie';",
+      "import { CardMovies } from '../card-movies/card-movies';",
+      "",
+      "@Component({",
+      "  selector: 'app-list-movies',",
+      "  standalone: true,",
+      "  imports: [CardMovies],",
+      "  templateUrl: './list-movies.html',",
+      "  styleUrl: './list-movies.css',",
+      "})",
+      "export class ListMovies {",
+      "  public listMovies = input.required<Movie[]>();",
+      "}"
+    ],
+    "description": "Lógica del listado de películas"
+  },
+  "List Movies HTML": {
+    "prefix": "list-movie-html",
+    "body": [
+      "<div class=\"container-movies\">",
+      "  @for (movieget of listMovies(); track movieget.id) {",
+      "    <app-card-movies [movie]=\"movieget\"></app-card-movies>",
+      "  }",
+      "</div>"
+    ],
+    "description": "Template HTML con el nuevo @for de Angular"
+  },
+  "Main Movie Component TS": {
+    "prefix": "movie-main-ts",
+    "body": [
+      "import { Component, inject } from '@angular/core';",
+      "import { MovieApi } from './services/movie-api';",
+      "import { ListMovies } from \"./components/list-movies/list-movies\";",
+      "",
+      "@Component({",
+      "  selector: 'app-movie',",
+      "  standalone: true,",
+      "  imports: [ListMovies],",
+      "  templateUrl: './movie.html',",
+      "  styleUrl: './movie.css',",
+      "})",
+      "export class MovieComponent {",
+      "  public moviesApi = inject(MovieApi);",
+      "}"
+    ],
+    "description": "Componente principal que inyecta el servicio"
+  },
+  "Movie Main Template (httpResource)": {
+    "prefix": "movie-main-html",
+    "body": [
+      "@if (moviesApi.getAllMovies.hasValue() && moviesApi.getAllMovies.value()?.movies?.length > 0) {",
+      "  <app-list-movies [listMovies]=\"moviesApi.getAllMovies.value()!.movies\"></app-list-movies>",
+      "} @else if (moviesApi.getAllMovies.isLoading()) {",
+      "  <p>Loading movies...</p>",
+      "} @else if (moviesApi.getAllMovies.error()) {",
+      "  <p>Error: {{ moviesApi.getAllMovies.error()?.message }}</p>",
+      "}"
+    ],
+    "description": "Template con manejo de estados para httpResource (Carga, Error, Éxito)"
+  }
+}
