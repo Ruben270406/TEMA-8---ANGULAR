@@ -1,0 +1,13 @@
+
+<div class="card" width="18rem">
+    <img class="card-img-top" [src]="movie().image" alt="">
+    <div class="card-body">
+        <p><strong>Movie: </strong>{{movie().title}}</p>
+        <p><strong>Premiere</strong>{{movie().year}}</p>
+        <p><strong>Stars</strong>{{movie().stars}}</p>
+    </div>
+    <div class="container-btn">
+        <button class="btn btn-danger">Delete Movie</button>
+        <button class="btn btn-primary">Select Movie</button>
+    </div>
+</div>
